@@ -1,0 +1,20 @@
+<!-- Q3. Animation with Start and Stop -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animation Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <div id="animate" style="background: lightblue; height: 50px; width: 100px;"></div>
+    <script>
+        $(document).ready(function() {
+            $("#start").click(() => $("#animate").animate({ width: "400px" }, 2000));
+            $("#stop").click(() => $("#animate").stop());
+        });
+    </script>
+</body>
+</html>

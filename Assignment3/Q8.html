@@ -1,0 +1,25 @@
+<!-- Q8. Remove Elements by ID -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove Element</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <input type="text" id="elementId" placeholder="Enter ID">
+    <button id="removeElement">Remove</button>
+    <div id="container">
+        <p id="para1">Paragraph 1</p>
+        <p id="para2">Paragraph 2</p>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#removeElement").click(() => {
+                let id = $("#elementId").val();
+                $("#" + id).remove();
+            });
+        });
+    </script>
+</body>
+</html>

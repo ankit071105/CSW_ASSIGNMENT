@@ -1,0 +1,25 @@
+<!-- Q6. Apply Classes -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apply Classes</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .highlight { background-color: yellow; }
+        .dim { opacity: 0.5; }
+    </style>
+</head>
+<body>
+    <button id="addHighlight">Add Highlight</button>
+    <button id="addDim">Add Dim</button>
+    <div id="box" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+    <script>
+        $(document).ready(function() {
+            $("#addHighlight").click(() => $("#box").removeClass("dim").addClass("highlight"));
+            $("#addDim").click(() => $("#box").removeClass("highlight").addClass("dim"));
+        });
+    </script>
+</body>
+</html>

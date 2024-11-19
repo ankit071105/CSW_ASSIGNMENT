@@ -1,0 +1,21 @@
+<!-- Q9. Custom Popup Box -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Popup</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #popup { display: none; background: lightgray; padding: 20px; border: 1px solid black; }
+    </style>
+</head>
+<body>
+    <button id="showPopup">Show Popup</button>
+    <div id="popup">This is a custom popup!</div>
+    <script>
+        $(document).ready(function() {
+            $("#showPopup").click(() => $("#popup").toggle());
+        });
+    </script>
+</body>
+</html>

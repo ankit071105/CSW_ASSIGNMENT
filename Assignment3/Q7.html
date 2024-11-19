@@ -1,0 +1,28 @@
+<!-- Q7. Add Row and Change Text Color -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table Manipulation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="addRow">Add Row</button>
+    <button id="changeColor">Change Color</button>
+    <table border="1">
+        <tr><th>Name</th><th>Age</th></tr>
+    </table>
+    <input type="text" id="name" placeholder="Name">
+    <input type="text" id="age" placeholder="Age">
+    <script>
+        $(document).ready(function() {
+            $("#addRow").click(function() {
+                let name = $("#name").val();
+                let age = $("#age").val();
+                $("table").append(`<tr><td>${name}</td><td>${age}</td></tr>`);
+            });
+            $("#changeColor").click(() => $("table td").css("color", "red"));
+        });
+    </script>
+</body>
+</html>

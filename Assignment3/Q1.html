@@ -1,0 +1,26 @@
+<!-- Change Background Color and Toggle Visibility -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Background and Toggle Visibility</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="red">Red</button>
+    <button id="blue">Blue</button>
+    <button id="green">Green</button>
+    <button id="toggle">Toggle Divs</button>
+    <div>Sample Div 1</div>
+    <div>Sample Div 2</div>
+    <script>
+        $(document).ready(function() {
+            $("#red").click(() => $("body").css("background-color", "red"));
+            $("#blue").click(() => $("body").css("background-color", "blue"));
+            $("#green").click(() => $("body").css("background-color", "green"));
+            $("#toggle").click(() => $("div").toggle());
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- Q2. Interaction with <div> Element -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Div</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #interactive {
+            background-color: lightblue;
+            border: 2px solid black;
+            text-align: center;
+            padding: 20px;
+            width: 200px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="interactive">Hover or Click Me</div>
+    <script>
+        $(document).ready(function() {
+            $("#interactive").click(() => $(this).text("Clicked!"));
+            $("#interactive").dblclick(() => $(this).css("background-color", "orange"));
+            $("#interactive").hover(
+                () => $(this).css("border-color", "green"),
+                () => $(this).css("border-color", "black")
+            );
+        });
+    </script>
+</body>
+</html>

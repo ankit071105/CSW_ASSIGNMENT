@@ -1,0 +1,24 @@
+<!-- Q5. Manipulate <ul> with List Items -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Manipulation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <ul id="topics">
+        <li>Getting Started with Full Stack</li>
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+    <script>
+        $(document).ready(function() {
+            $("#topics").append("<li>CSS</li>");
+            $("#topics").prepend("<li>Introduction to Full Stack Development</li>");
+            $("#topics").after("<p>Topics updated</p>");
+            $("#topics").before("<h3>List of Topics Covered</h3>");
+        });
+    </script>
+</body>
+</html>

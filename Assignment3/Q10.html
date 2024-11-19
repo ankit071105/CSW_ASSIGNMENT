@@ -1,0 +1,30 @@
+<!-- Q10. Sign-Up Form Validation -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign-Up Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <form id="signupForm">
+        <input type="text" id="username" placeholder="Username"><br>
+        <input type="email" id="email" placeholder="Email"><br>
+        <button type="submit">Sign Up</button>
+    </form>
+    <script>
+        $(document).ready(function() {
+            $("#signupForm").submit(function(e) {
+                e.preventDefault();
+                let username = $("#username").val();
+                let email = $("#email").val();
+                if (!username || !email) {
+                    alert("Please fill in all fields.");
+                } else {
+                    alert("Sign-Up Successful!");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

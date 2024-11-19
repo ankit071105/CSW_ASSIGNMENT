@@ -1,0 +1,22 @@
+<!-- Q4. Fetch Text and HTML Content -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch Content</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="fetchText">Fetch Text</button>
+    <button id="fetchHTML">Fetch HTML</button>
+    <p id="para">This is a <strong>paragraph</strong>.</p>
+    <div id="content">This is a <em>div</em>.</div>
+    <script>
+        $(document).ready(function() {
+            $("#fetchText").click(() => alert($("#para").text()));
+            $("#fetchHTML").click(() => alert($("#content").html()));
+        });
+    </script>
+</body>
+</html>
