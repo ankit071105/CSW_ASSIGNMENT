@@ -1,0 +1,22 @@
+<!-- Q3: Change Div Color on Image Hover -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Effect</title>
+    <style>
+        .special-div {
+            font-size: 20px;
+            color: black;
+        }
+        .image:hover + .special-div {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <img src="example.jpg" alt="Example Image" class="image">
+    <div class="special-div">My Special Div</div>
+</body>
+</html>

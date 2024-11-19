@@ -1,0 +1,37 @@
+<!-- Q9: Styled Dropdown with Hover Effect -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Dropdown</title>
+    <style>
+        select {
+            font-size: 16px;
+            padding: 10px;
+            margin: 20px;
+        }
+        select option {
+            font-family: sans-serif;
+            color: black;
+        }
+        select option:nth-child(1) {
+            color: red;
+        }
+        select option:nth-child(2) {
+            color: blue;
+        }
+        select option:nth-child(3) {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <label for="dropdown">Choose an option:</label>
+    <select id="dropdown">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+    </select>
+</body>
+</html>

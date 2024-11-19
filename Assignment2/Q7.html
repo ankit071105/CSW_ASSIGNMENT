@@ -1,0 +1,44 @@
+<!-- Q7: Vertical Fixed Menu Bar -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Fixed Menu Bar</title>
+    <style>
+        body {
+            margin: 0;
+            padding-bottom: 2000px; /* Simulating longer content */
+        }
+        .menu-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        }
+        .menu-bar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .menu-bar a:hover {
+            background-color: #575757;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-bar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+</body>
+</html>
