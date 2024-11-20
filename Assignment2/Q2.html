@@ -1,23 +1,42 @@
 <!-- Q2: Product Display using CSS Box Model -->
+<!-- Q2: Product Display using CSS Box Model -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Display</title>
-    <link rel="stylesheet" href="styles.css">
+ <style>
+    /* Q2 */
+.product {
+    display: flex;
+    justify-content: space-between;
+}
+.container {
+    width: 400px;
+    padding: 20px;
+    border: 10px solid black;
+    margin: 15px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.container img {
+    width: 100%;
+    height: auto;
+}
+ </style>
 </head>
 <body>
-    <div class="product-row">
-        <div class="product-container">
+    <div class="product">
+        <div class="container">
             <img src="product1.jpg" alt="Product 1">
             <p>Product 1 Description</p>
         </div>
-        <div class="product-container">
+        <div class="container">
             <img src="product2.jpg" alt="Product 2">
             <p>Product 2 Description</p>
         </div>
-        <div class="product-container">
+        <div class="container">
             <img src="product3.jpg" alt="Product 3">
             <p>Product 3 Description</p>
         </div>
