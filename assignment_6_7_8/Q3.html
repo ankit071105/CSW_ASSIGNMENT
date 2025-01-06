@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>School Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .form-control {
+            border-radius: 10px;
+        }
+        .btn-primary {
+            border-radius: 10px;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .login-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-edit {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-edit:hover {
+            background-color: #0056b3;
+        }
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #f2f2f2;
+        }
+        .table-striped tbody tr:nth-of-type(even) {
+            background-color: #ffffff;
+        }
+        .table-hover tbody tr:hover {
+            background-color: #f0f8ff !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="mb-4" id="search-section" style="display: none;">
+        <input type="text" id="search-bar" class="form-control" placeholder="Search by name...">
+    </div>
+    
+    <div id="student-information" style="display:none;">
+        <h1 class="text-center">Student Information</h1>
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Semester</th>
+                    <th>Registration Number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="student-table-body">
+                <tr>
+                    <td>John Doe</td>
+                    <td>20</td>
+                    <td>5</td>
+                    <td>2021001</td>
+                    <td>
+                        <button class="btn btn-edit">Edit</button>
+                        <button class="btn btn-delete">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>19</td>
+                    <td>3</td>
+                    <td>2021002</td>
+                    <td>
+                        <button class="btn btn-edit">Edit</button>
+                        <button class="btn btn-delete">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="login-section">
+        <div class="intro">
+            <h1>Welcome to the School Management System</h1>
+            <p>The one-stop solution for managing school administration, student records, and academic activities efficiently.</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-box">
+                    <h2 class="text-center">Login</h2>
+                    <form id="login-form">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                            <small class="error-message" id="password-error">Password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 digit.</small>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#login-form').on('submit', function (event) {
+            event.preventDefault();
+            const password = $('#password').val();
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+
+            if (!passwordRegex.test(password)) {
+                $('#password-error').show();
+            } else {
+                $('#password-error').hide();
+                $('#login-section').hide();
+                $('#search-section').show();
+                $('#student-information').show();
+            }
+        });
+        $('#search-bar').on('keyup', function () {
+            const searchValue = $(this).val().toLowerCase();
+            $('#student-table-body tr').filter(function () {
+                $(this).toggle($(this).find('td:first').text().toLowerCase().includes(searchValue));
+            });
+        });
+        $(document).on('click', '.btn-edit', function () {
+            const row = $(this).closest('tr');
+            const fields = ['Name', 'Age', 'Semester', 'Registration Number'];
+            fields.forEach((field, index) => {
+                const currentValue = row.find(`td:eq(${index})`).text();
+                const updatedValue = prompt(`Edit ${field}:`, currentValue);
+                if (updatedValue) {
+                    row.find(`td:eq(${index})`).text(updatedValue);
+                }
+            });
+        });
+        $(document).on('click', '.btn-delete', function () {
+            if (confirm('Are you sure you want to delete this student?')) {
+                $(this).closest('tr').remove();
+            }
+        });
+    });
+</script>
+</body>
+</html>

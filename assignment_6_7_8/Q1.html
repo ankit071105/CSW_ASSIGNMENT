@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>School Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #d0f9fb;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+
+        }
+        .form-control {
+            border-radius: 10px;
+        }
+        .btn-primary {
+            border-radius: 10px;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .login-box {
+            background: orangered;
+            color: aliceblue;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="intro">
+        <h1>Welcome to the School Management System</h1>
+        <p>The one-stop solution for managing school administration, student records, and academic activities efficiently.</p>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="login-box">
+                <h2 class="text-center">Login</h2>
+                <form id="login">
+                    <div class="mb-2">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                        <small class="error-message" id="password-error">Password must contain at least 1 uppercase letter, 1 lowercase letter, and 1 digit.</small>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#login').on('submit', function (event) {
+            event.preventDefault();
+            const password = $('#password').val();
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/; 
+            if (!passwordRegex.test(password)) {
+                $('#password-error').show();
+            } else {
+                $('#password-error').hide();
+                alert('Login successful!');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
